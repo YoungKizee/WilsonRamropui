@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
-import { Home, Briefcase, Code, Hammer, User, Mail, Menu, X as CloseIcon } from "lucide-react";
+import { Home, Briefcase, Code, Hammer, User, Mail, Menu, X as CloseIcon, Bot } from "lucide-react";
 import { sidebarStyles } from "@/styles/dummy-styles";
 
 export const Sidebar = () => {
@@ -19,6 +19,7 @@ export const Sidebar = () => {
     { href: "/tools", label: "Tools", Icon: Hammer },
     { href: "/about", label: "About", Icon: User },
     { href: "/contact", label: "Contact", Icon: Mail },
+    { href: "/ai", label: "AI Chat", Icon: Bot },
   ];
 
   return (

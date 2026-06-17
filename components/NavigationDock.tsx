@@ -14,6 +14,7 @@ export function NavigationDock() {
     { href: '/tools', label: 'Tools' },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
+    { href: '/ai', label: 'AI Chat' },
   ];
 
   return (

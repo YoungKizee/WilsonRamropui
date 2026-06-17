@@ -3,13 +3,14 @@ import { Timeline } from "@/components/ui/timeline";
 import { timelineStyles as s } from "@/styles/dummy-styles";
 import { Monitor } from "lucide-react";
 import Ferrofluid from "@/components/Ferrofluid";
+import GooeyDemo from "@/components/gooey-demo";
 
 export default function Experience() {
   const data = [
     {
       title: "2023 - Present",
       content: (
-        <div className="relative p-6 md:p-8 rounded-3xl bg-zinc-950/20 backdrop-blur-3xl backdrop-saturate-[1.5] border border-white/10 border-t-white/30 border-l-white/30 shadow-[0_8px_32px_0_rgba(0,0,0,0.5),inset_0_2px_4px_rgba(255,255,255,0.1),inset_0_-2px_4px_rgba(0,0,0,0.4)] transition-all duration-300 hover:bg-zinc-950/30 hover:-translate-y-1 hover:shadow-[0_16px_40px_0_rgba(0,0,0,0.6)]">
+        <div key="exp-1" className="relative p-6 md:p-8 rounded-3xl bg-zinc-950/20 backdrop-blur-3xl backdrop-saturate-[1.5] border border-white/10 border-t-white/30 border-l-white/30 shadow-[0_8px_32px_0_rgba(0,0,0,0.5),inset_0_2px_4px_rgba(255,255,255,0.1),inset_0_-2px_4px_rgba(0,0,0,0.4)] transition-all duration-300 hover:bg-zinc-950/30 hover:-translate-y-1 hover:shadow-[0_16px_40px_0_rgba(0,0,0,0.6)]">
           <div className="absolute inset-0 bg-gradient-to-br from-white/[0.08] via-transparent to-black/40 pointer-events-none rounded-3xl" />
           <h4 className="relative text-xl md:text-2xl font-bold text-zinc-100 mb-2">Lebsack Ltd Group</h4>
           <p className="relative text-zinc-400 mb-4">
@@ -31,7 +32,7 @@ export default function Experience() {
     {
       title: "2021 - 2023",
       content: (
-        <div className="relative p-6 md:p-8 rounded-3xl bg-zinc-950/20 backdrop-blur-3xl backdrop-saturate-[1.5] border border-white/10 border-t-white/30 border-l-white/30 shadow-[0_8px_32px_0_rgba(0,0,0,0.5),inset_0_2px_4px_rgba(255,255,255,0.1),inset_0_-2px_4px_rgba(0,0,0,0.4)] transition-all duration-300 hover:bg-zinc-950/30 hover:-translate-y-1 hover:shadow-[0_16px_40px_0_rgba(0,0,0,0.6)]">
+        <div key="exp-2" className="relative p-6 md:p-8 rounded-3xl bg-zinc-950/20 backdrop-blur-3xl backdrop-saturate-[1.5] border border-white/10 border-t-white/30 border-l-white/30 shadow-[0_8px_32px_0_rgba(0,0,0,0.5),inset_0_2px_4px_rgba(255,255,255,0.1),inset_0_-2px_4px_rgba(0,0,0,0.4)] transition-all duration-300 hover:bg-zinc-950/30 hover:-translate-y-1 hover:shadow-[0_16px_40px_0_rgba(0,0,0,0.6)]">
           <div className="absolute inset-0 bg-gradient-to-br from-white/[0.08] via-transparent to-black/40 pointer-events-none rounded-3xl" />
           <h4 className="relative text-xl md:text-2xl font-bold text-zinc-100 mb-2">Keebler-Brown Inc</h4>
           <p className="relative text-zinc-400 mb-4">
@@ -81,6 +82,18 @@ export default function Experience() {
           </div>
           
           <Timeline data={data} />
+
+          <div className="mt-20">
+            <div className={s.techSectionHeader}>
+              <div>
+                <h2 className={s.techSectionTitle}>Project Archives</h2>
+                <p className={s.techSectionSubtitle}>A gooey interactive log of past years</p>
+              </div>
+            </div>
+            <div className="rounded-3xl overflow-hidden border border-white/10 relative h-[280px] sm:h-[350px] md:h-[600px] w-full shadow-[0_8px_32px_0_rgba(0,0,0,0.5)]">
+              <GooeyDemo />
+            </div>
+          </div>
 
           <div className="mt-20">
             <div className={s.techSectionHeader}>

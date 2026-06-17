@@ -24,9 +24,11 @@ export const CometCard = ({
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
+  const glareOpacityTarget = useMotionValue(0);
 
   const mouseXSpring = useSpring(x);
   const mouseYSpring = useSpring(y);
+  const glareOpacity = useSpring(glareOpacityTarget);
 
   const rotateX = useTransform(
     mouseYSpring,
@@ -55,7 +57,7 @@ export const CometCard = ({
 
   const glareBackground = useMotionTemplate`radial-gradient(circle at ${glareX}% ${glareY}%, rgba(255, 255, 255, 0.9) 10%, rgba(255, 255, 255, 0.75) 20%, rgba(255, 255, 255, 0) 80%)`;
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!ref.current) return;
 
     const rect = ref.current.getBoundingClientRect();
@@ -63,32 +65,43 @@ export const CometCard = ({
     const width = rect.width;
     const height = rect.height;
 
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
+    const clientX = e.clientX;
+    const clientY = e.clientY;
+
+    const mouseX = clientX - rect.left;
+    const mouseY = clientY - rect.top;
 
     const xPct = mouseX / width - 0.5;
     const yPct = mouseY / height - 0.5;
 
     x.set(xPct);
     y.set(yPct);
+    glareOpacityTarget.set(0.6);
   };
 
-  const handleMouseLeave = () => {
+  const handlePointerLeave = () => {
     x.set(0);
     y.set(0);
+    glareOpacityTarget.set(0);
   };
 
   return (
     <div className={cn("perspective-distant transform-3d", className)}>
       <motion.div
         ref={ref}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
+        onPointerMove={handlePointerMove}
+        onPointerLeave={handlePointerLeave}
+        onPointerCancel={handlePointerLeave}
         style={{
           rotateX,
           rotateY,
           translateX,
           translateY,
+          transformStyle: "preserve-3d",
+          backfaceVisibility: "hidden",
+          willChange: "transform",
+          WebkitFontSmoothing: "subpixel-antialiased",
+          touchAction: "none",
           boxShadow:
             "rgba(0, 0, 0, 0.01) 0px 520px 146px 0px, rgba(0, 0, 0, 0.04) 0px 333px 133px 0px, rgba(0, 0, 0, 0.26) 0px 83px 83px 0px, rgba(0, 0, 0, 0.29) 0px 21px 46px 0px",
         }}
@@ -105,9 +118,8 @@ export const CometCard = ({
           className="pointer-events-none absolute inset-0 z-50 h-full w-full rounded-[16px] mix-blend-overlay"
           style={{
             background: glareBackground,
-            opacity: 0.6,
+            opacity: glareOpacity,
           }}
-          transition={{ duration: 0.2 }}
         />
       </motion.div>
     </div>

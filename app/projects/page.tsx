@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { projectStyles } from "@/styles/dummy-styles";
 import { projects } from "@/lib/projects-data";
+import { AnimatedBeamMultipleOutputDemo } from "@/components/AnimatedBeamDemo";
 
 export default function Projects() {
   const router = useRouter();
@@ -17,6 +18,10 @@ export default function Projects() {
           <p className={projectStyles.pageSubtitle}>A collection of my work and side projects.</p>
         </div>
         
+        <div className="w-full flex justify-center mt-8 mb-12">
+          <AnimatedBeamMultipleOutputDemo />
+        </div>
+
         <div className={projectStyles.projectsGrid}>
           {projects.map((project) => (
             <div 

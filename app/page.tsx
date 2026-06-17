@@ -4,36 +4,54 @@ import { homePageStyles, spotlightStyles } from '@/styles/dummy-styles';
 import { Spotlight } from '@/components/ui/spotlight';
 import TextType from '@/components/TextType';
 import ModelViewer from '@/components/ModelViewer';
+import LayoutTextFlipDemo from '@/components/layout-text-flip-demo';
+import GlowingEffectDemo from '@/components/glowing-effect-demo';
+import { SplineSceneBasic } from '@/components/spline-scene-demo';
+import { AnimatedStrokeText } from '@/components/AnimatedStrokeText';
 
 export default function Home() {
   return (
     <div className={homePageStyles.container}>
       <Spotlight className={spotlightStyles.position} fill="#065a3eff" />
       <div className={homePageStyles.backgroundGrid.wrapper}>
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
+        <div className="fixed inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
       </div>
       <div className={homePageStyles.gradientOverlay} />
 
+      <div className="w-full flex justify-center mx-auto -mt-12 md:-mt-24 -mb-4 z-10">
+        <div className="w-full max-w-md px-4 sm:px-6">
+          <AnimatedStrokeText
+            text="Wilson"
+            className="text-white mx-auto"
+          />
+        </div>
+      </div>
+
       <main className={homePageStyles.heroSection}>
-        <div className="flex flex-col items-center justify-center mb-6 h-[72px]">
-          <TextType 
-            text={["I'm Wilson Ramropui", "Building Digital Products", "Founding Engineer"]}
+
+        <div className="flex flex-col items-center md:items-start justify-center md:justify-start mb-2 h-[32px] md:h-[40px]">
+          <TextType
+            text={["I'm Wilson Ramropui", "A Design Engineer", "Building Cool Products"]}
             typingSpeed={120}
             deletingSpeed={50}
             pauseDuration={2000}
             showCursor={true}
             cursorCharacter="|"
-            className="text-3xl md:text-5xl font-bold tracking-tight text-zinc-100 font-serif"
+            className="font-raleway-dots text-lg md:text-2xl font-bold tracking-wide text-zinc-300"
           />
         </div>
 
         <h1 className={homePageStyles.h1}>
-          Building Digital <span className={homePageStyles.spanInline}>Products</span>
+          Building Design Products
         </h1>
 
         <h2 className={homePageStyles.h2}>
           Engineering • Design • AI
         </h2>
+
+        <div className="w-full flex justify-center md:justify-start mb-8 -mt-2">
+          <LayoutTextFlipDemo />
+        </div>
 
         <div className={homePageStyles.calloutCard.wrapper}>
           <div className={homePageStyles.calloutCard.innerContainer}>
@@ -61,12 +79,18 @@ export default function Home() {
               <span>Featured Work</span>
             </div>
 
-            <div className="mt-6 w-full rounded-2xl overflow-hidden relative border border-white/20 bg-white/5 backdrop-blur-xl shadow-[inset_0_2px_15px_rgba(255,255,255,0.1),0_10px_30px_rgba(0,0,0,0.5)] transition-all duration-500 ease-out hover:-translate-y-3 hover:shadow-[inset_0_2px_25px_rgba(255,255,255,0.15),0_30px_60px_rgba(0,0,0,0.7)] hover:border-white/30">
+            <div className="mt-6 w-full rounded-2xl overflow-hidden relative border border-white/[0.06] bg-gradient-to-b from-white/[0.04] to-transparent backdrop-blur-3xl shadow-[inset_0_1px_0_rgba(255,255,255,0.06),inset_0_-1px_0_rgba(0,0,0,0.3),0_20px_60px_-15px_rgba(0,0,0,0.6)] transition-all duration-700 ease-out hover:-translate-y-2 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.1),inset_0_-1px_0_rgba(0,0,0,0.3),0_40px_80px_-20px_rgba(0,0,0,0.8)] hover:border-white/[0.1]">
+              {/* Top glass reflection */}
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+              {/* Bottom subtle glow */}
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
               <ModelViewer
                 url="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/main/2.0/ToyCar/glTF-Binary/ToyCar.glb"
                 width="100%"
                 height={400}
-                autoRotate={true}
+                autoRotate={false}
+                enableMouseParallax={false}
+                enableHoverRotation={false}
               />
             </div>
 
@@ -81,7 +105,15 @@ export default function Home() {
           </div>
         </div>
 
-      </main>
-    </div>
+        <div className="w-full mx-auto mt-12 mb-16">
+          <GlowingEffectDemo />
+        </div>
+
+        <div className="w-full max-w-5xl mx-auto mt-12 mb-16 relative z-10">
+          <SplineSceneBasic />
+        </div>
+
+      </main >
+    </div >
   );
 }

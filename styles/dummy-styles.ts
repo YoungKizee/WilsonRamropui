@@ -4,7 +4,7 @@ import type { CSSProperties } from "react";
 
 export const homePageStyles = {
   // Layout and container styles
-  container: "relative z-10 bg-zinc-950b px-6 pb-6 pt-0 md:px-20 md:pb-20 md:pt-10",
+  container: "relative z-10 bg-zinc-950 flex-1 flex flex-col justify-center px-6 pb-6 pt-0 md:px-20 md:pb-20 md:pt-10",
 
   // Background grid pattern
   backgroundGrid: {
@@ -13,15 +13,15 @@ export const homePageStyles = {
   },
 
   // Gradient overlay
-  gradientOverlay: "absolute inset-0 bg-linear-to-b from-black/40 via-transparent to-black/60 pointer-events-none",
+  gradientOverlay: "fixed inset-0 bg-linear-to-b from-black/40 via-transparent to-black/60 pointer-events-none",
 
   // Hero section
-  heroSection: "w-full max-w-[880px] mx-auto",
+  heroSection: "w-full max-w-5xl mx-auto md:mr-auto md:ml-0 flex flex-col items-center text-center md:items-start md:text-left",
 
   // Headings
-  h1: "text-[40px] md:whitespace-nowrap sm:text-[48px] md:text-[55px] lg:text-[72px] xl:text-[72px] leading-[0.95] font-extrabold tracking-tight mb-3 text-zinc-100",
+  h1: "font-cormorant text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-tight font-medium tracking-tight mb-4 text-zinc-100",
 
-  h2: "text-xl sm:text-2xl md:text-3xl text-zinc-300 font-medium mb-6",
+  h2: "font-crimson text-base md:text-lg font-normal text-zinc-400 uppercase tracking-widest mb-6",
 
   // Callout card
   calloutCard: {
@@ -29,19 +29,19 @@ export const homePageStyles = {
     innerContainer: "flex flex-col sm:flex-row items-center sm:justify-between gap-3 sm:gap-4",
     textContainer: "flex items-center gap-3 min-w-0",
     icon: "w-5 h-5 text-zinc-300 flex-shrink-0",
-    text: "truncate text-sm font-medium text-zinc-200",
+    text: "font-cinzel truncate text-sm font-medium text-zinc-200",
     button: "mt-2 sm:mt-0 px-4 py-1 rounded-full border bg-zinc-100 text-zinc-900 text-sm shrink-0 focus:outline-none focus:ring-2 focus:ring-white/30 focus:ring-offset-2"
   },
 
   // Paragraph
-  paragraph: "text-base sm:text-lg text-zinc-300 leading-7 mb-8 max-w-[720px]",
+  paragraph: "font-goudy text-lg sm:text-xl text-zinc-300 leading-relaxed mb-8 max-w-[720px] text-center md:text-left",
 
   // Link styles
   link: "underline text-zinc-200 hover:text-zinc-100 transition-colors",
 
-  // Article/Video card
+  // Article/Video card — cinematic glass box
   article: {
-    wrapper: "rounded-lg border-zinc-800 bg-zinc-900 shadow-lg overflow-hidden max-w-[720px]",
+    wrapper: "rounded-3xl border border-white/[0.08] bg-white/[0.02] backdrop-blur-2xl shadow-[0_0_80px_-20px_rgba(255,255,255,0.04)] overflow-hidden max-w-[720px] w-full relative",
     videoContainer: "relative w-full h-auto overflow-hidden",
     video: "w-full h-auto max-h-[400px] object-cover",
     videoStyles: {
@@ -49,14 +49,14 @@ export const homePageStyles = {
       userSelect: 'none',
       pointerEvents: 'none'
     } satisfies CSSProperties,
-    content: "p-4",
-    header: "flex items-center gap-2 text-xs text-zinc-400 uppercase mb-2",
-    headerIcon: "w-4 h-4",
+    content: "p-6 md:p-8 flex flex-col items-center text-center relative",
+    header: "flex items-center justify-center gap-3 text-[11px] text-zinc-500 uppercase tracking-[0.25em] mb-4 w-full font-medium",
+    headerIcon: "w-3.5 h-3.5 text-emerald-400/60",
     title: "font-semibold text-xl md:text-2xl text-zinc-100 mb-2",
     description: "text-sm text-zinc-300",
-    linkContainer: "mt-4",
-    link: "inline-flex items-center text-sm text-zinc-300 hover:text-zinc-100 transition-colors",
-    linkIcon: "w-4 h-4 ml-1"
+    linkContainer: "mt-6 flex justify-center w-full",
+    link: "inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-all duration-300 group",
+    linkIcon: "w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
   },
 
   // Inline span adjustments
@@ -97,8 +97,8 @@ export const pageStyles = {
 
 export const timelineStyles = {
   // Layout styles
-  container: "min-h-screen bg-zinc-950 px-4 pb-4 md:px-8 md:pb-8 pt-8 md:pt-12 lg:pt-12",
-  innerContainer: "mx-auto max-w-5xl",
+  container: "flex-1 flex flex-col justify-center min-h-screen bg-zinc-950 px-4 pb-4 md:px-8 md:pb-8 pt-8 md:pt-12 lg:pt-12",
+  innerContainer: "w-full max-w-full mx-auto",
   mainTitle: "text-4xl font-bold text-white md:text-5xl",
   mainParagraph: "mt-2 text-zinc-400",
 
@@ -282,8 +282,8 @@ export const contactPageStyles = {
 
 export const projectStyles = {
   // Page container
-  pageContainer: "flex min-h-screen w-full justify-center pt-8 md:pt-12 bg-zinc-950 px-6 pb-12 md:px-12 md:pb-20 lg:px-16",
-  innerContainer: "w-full max-w-full",
+  pageContainer: "flex-1 flex flex-col justify-center min-h-screen w-full pt-8 md:pt-12 bg-zinc-950 px-6 pb-12 md:px-12 md:pb-20 lg:px-16",
+  innerContainer: "w-full max-w-full mx-auto",
 
   // Header
   header: "mb-12",
@@ -344,8 +344,8 @@ export const styles = {
 
 export const toolsPageStyles = {
   // Layout and container styles
-  pageContainer: "flex min-h-screen w-full justify-center bg-zinc-950 pt-8 md:pt-12 px-6 pb-12 md:px-12 md:pb-20 lg:px-16",
-  contentContainer: "w-full max-w-full",
+  pageContainer: "flex-1 flex flex-col justify-center min-h-screen w-full bg-zinc-950 pt-8 md:pt-12 px-6 pb-12 md:px-12 md:pb-20 lg:px-16",
+  contentContainer: "w-full max-w-full mx-auto",
 
   // Header
   headerContainer: "mb-12",

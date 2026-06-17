@@ -19,7 +19,7 @@ export const TracingBeam = ({
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end start"],
+    offset: ["start start", "end end"],
   });
 
   const contentRef = useRef<HTMLDivElement>(null);
@@ -28,6 +28,16 @@ export const TracingBeam = ({
   useEffect(() => {
     if (contentRef.current) {
       setSvgHeight(contentRef.current.offsetHeight);
+      
+      const resizeObserver = new ResizeObserver(() => {
+        if (contentRef.current) {
+          setSvgHeight(contentRef.current.offsetHeight);
+        }
+      });
+      
+      resizeObserver.observe(contentRef.current);
+
+      return () => resizeObserver.disconnect();
     }
   }, []);
 
@@ -49,9 +59,9 @@ export const TracingBeam = ({
   return (
     <motion.div
       ref={ref}
-      className={cn("relative mx-auto h-full w-full max-w-4xl", className)}
+      className={cn("relative h-full w-full", className)}
     >
-      <div className="absolute top-3 -left-4 md:-left-20">
+      <div className="absolute top-3 -left-5 md:left-6 z-50">
         <motion.div
           transition={{
             duration: 0.2,

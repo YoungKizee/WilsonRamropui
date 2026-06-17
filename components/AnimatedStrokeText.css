@@ -1,0 +1,32 @@
+.animated-stroke-svg {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+}
+
+.animated-stroke-text {
+  text-transform: uppercase;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  font-size: 132px;
+  fill: transparent;
+  stroke: currentColor;
+  will-change: stroke-dasharray, stroke-dashoffset, stroke-width;
+  animation: stroke 5s infinite alternate ease-in-out;
+}
+
+@keyframes stroke {
+  0% {
+    stroke-width: 0.5;
+    stroke-dashoffset: 25%;
+    stroke-dasharray: 0 50%;
+  }
+  50% {
+    stroke-width: 3;
+  }
+  100% {
+    stroke-width: 0.5;
+    stroke-dashoffset: -25%;
+    stroke-dasharray: 50% 0;
+  }
+}

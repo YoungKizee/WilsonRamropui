@@ -5,6 +5,7 @@ import { aboutPageStyles as s } from "@/styles/dummy-styles";
 import { Mail, FileText } from "lucide-react";
 import MagicBento from "@/components/MagicBento";
 import { MetallicCard } from "@/components/MetallicCard";
+import { SweepButton } from "@/components/SweepButton";
 import LogoLoop from "@/components/LogoLoop";
 import { 
   SiJavascript, SiTypescript, SiReact, SiNextdotjs, 
@@ -53,12 +54,16 @@ export default function About() {
                 <FileText className="w-4 h-4" />
                 Resume
               </Link>
-              <Link href="/contact" className={`${s.secondaryButton} justify-center`}>
-                <Mail className="w-4 h-4" />
-                Let's Connect
+              <Link href="/contact" className="flex w-full sm:w-auto">
+                <SweepButton className="w-full flex items-center justify-center gap-2">
+                  <Mail className="w-4 h-4" />
+                  Let's Connect
+                </SweepButton>
               </Link>
-              <Link href="/projects" className={`${s.secondaryButton} justify-center`}>
-                View My Work
+              <Link href="/projects" className="flex w-full sm:w-auto">
+                <SweepButton className="w-full flex items-center justify-center">
+                  View My Work
+                </SweepButton>
               </Link>
             </div>
           </div>

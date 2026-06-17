@@ -11,14 +11,14 @@ export function TracingBeamWrapper({ children }: { children: React.ReactNode }) 
 
   if (isHidden) {
     return (
-      <div className="w-full max-w-5xl px-6 md:px-12 mx-auto">
+      <div className="w-full max-w-full">
         {children}
       </div>
     );
   }
 
   return (
-    <TracingBeam className="w-full max-w-5xl px-6 md:px-12">
+    <TracingBeam className="w-full max-w-full">
       {children}
     </TracingBeam>
   );
