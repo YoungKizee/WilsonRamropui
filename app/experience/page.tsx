@@ -57,6 +57,9 @@ export default function Experience() {
     <div className={`${s.container} relative overflow-hidden bg-black`}>
       <div className="absolute inset-0 z-0 opacity-50">
         <Ferrofluid
+          className=""
+          dpr={1}
+          mixBlendMode="normal"
           colors={["#ffffff", "#ffffff", "#ffffff"]}
           speed={0.2}
           scale={1}

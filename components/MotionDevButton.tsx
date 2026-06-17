@@ -14,7 +14,7 @@ export const MotionDevButton = ({ children = "GET MOTION+", className = "", ...p
       whileTap="tap"
       initial="idle"
       className={`relative group flex items-center justify-center px-6 py-3 font-mono text-sm tracking-widest uppercase transition-colors ${className}`}
-      {...props}
+      {...(props as any)}
     >
       {/* Hatched/Striped Background Layer */}
       <div 
